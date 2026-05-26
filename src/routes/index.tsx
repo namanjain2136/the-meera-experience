@@ -24,7 +24,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.9, ease: "easeOut" },
   },
 };
 
@@ -85,7 +85,7 @@ function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
           className="mt-8 font-serif text-[3.25rem] leading-[0.95] tracking-wide md:text-[6.5rem] lg:text-[8rem]"
         >
           THE MEERA
