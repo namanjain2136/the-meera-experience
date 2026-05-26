@@ -72,19 +72,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "The Meera — A Heritage Luxury Hotel & Wedding Destination" },
+      {
+        name: "description",
+        content:
+          "The Meera is a heritage luxury hotel in Jaipur offering elegant suites, royal weddings, signature dining and warm Indian hospitality.",
+      },
+      { property: "og:title", content: "The Meera — Heritage Luxury Hospitality" },
+      {
+        property: "og:description",
+        content:
+          "Where Indian heritage is reimagined as timeless luxury. Suites, weddings & dining at The Meera, Jaipur.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
   }),
