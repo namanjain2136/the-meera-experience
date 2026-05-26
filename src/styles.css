@@ -40,19 +40,28 @@
   --color-champagne: var(--champagne);
   --color-burgundy: var(--burgundy);
   --color-burgundy-soft: var(--burgundy-soft);
+  --color-wine: var(--wine);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
   --color-ink: var(--ink);
+
+  --animate-drift-slow: drift 28s ease-in-out infinite;
+  --animate-glow-pulse: glowPulse 10s ease-in-out infinite;
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.5rem;
 
   /* Warm hospitality palette */
-  --ivory: oklch(0.985 0.012 85);            /* #faf6ee */
-  --cream: oklch(0.965 0.018 82);            /* #f4ecdc */
-  --champagne: oklch(0.92 0.028 80);         /* #e8dcc1 */
-  --burgundy: oklch(0.42 0.12 25);           /* deep muted burgundy */
-  --burgundy-soft: oklch(0.55 0.13 25);      /* warm soft red */
-  --ink: oklch(0.28 0.02 60);                /* warm dark brown-ink */
+  --ivory: oklch(0.985 0.012 85);
+  --cream: oklch(0.965 0.018 82);
+  --champagne: oklch(0.92 0.028 80);
+  --gold: oklch(0.72 0.11 75);
+  --gold-soft: oklch(0.82 0.07 80);
+  --burgundy: oklch(0.38 0.13 22);
+  --burgundy-soft: oklch(0.52 0.14 22);
+  --wine: oklch(0.32 0.12 18);
+  --ink: oklch(0.28 0.02 60);
 
   --background: var(--ivory);
   --foreground: var(--ink);
@@ -71,7 +80,7 @@
   --destructive: oklch(0.55 0.18 28);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.88 0.02 80);
-  --input: oklch(0.88 0.02 80);
+  --input: oklch(0.9 0.018 80);
   --ring: var(--burgundy-soft);
 }
 
@@ -106,4 +115,41 @@
     height: 1px;
     background: linear-gradient(to right, transparent, var(--burgundy-soft), transparent);
   }
+
+  /* Ambient hero background — soft ivory/cream with wine glow */
+  .hero-ambient {
+    background:
+      radial-gradient(60% 50% at 20% 30%, color-mix(in oklab, var(--burgundy) 14%, transparent) 0%, transparent 70%),
+      radial-gradient(55% 45% at 80% 25%, color-mix(in oklab, var(--gold) 18%, transparent) 0%, transparent 70%),
+      radial-gradient(70% 60% at 70% 85%, color-mix(in oklab, var(--wine) 16%, transparent) 0%, transparent 70%),
+      radial-gradient(50% 40% at 25% 90%, color-mix(in oklab, var(--champagne) 50%, transparent) 0%, transparent 70%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+    background-size: 140% 140%, 130% 130%, 150% 150%, 120% 120%, 100% 100%;
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0;
+    animation: ambientDrift 32s ease-in-out infinite alternate;
+  }
+
+  .hero-noise {
+    background-image: radial-gradient(rgba(120, 50, 40, 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
+
+@keyframes ambientDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 0;
+  }
+  100% {
+    background-position: 10% 8%, 88% 12%, 90% 92%, 8% 88%, 0 0;
+  }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.85; }
 }
