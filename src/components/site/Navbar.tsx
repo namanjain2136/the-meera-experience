@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Home", to: "/" as const },
-  { label: "About", to: "/about" as const },
-  { label: "Rooms", to: "/rooms" as const },
-  { label: "Weddings", to: "/" as const, hash: "weddings" },
-  { label: "Enquire", to: "/" as const, hash: "enquire" },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Rooms", href: "#rooms" },
+  { label: "Weddings", href: "#weddings" },
+  { label: "Dining", href: "#dining" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -24,59 +22,60 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // On non-home routes, keep navbar always solid for contrast.
-  const solid = scrolled || !isHome;
-
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        solid
-          ? "bg-ivory/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(120,40,40,0.06)]"
+        scrolled
+          ? "bg-ivory/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.04)]"
           : "bg-transparent",
       )}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-12 md:py-6">
-        <Link
-          to="/"
+        <a
+          href="#home"
           className={cn(
             "flex flex-col leading-none transition-colors",
-            solid ? "text-ink" : "text-ink",
+            scrolled ? "text-ink" : "text-ivory",
           )}
         >
-          <span className="font-serif text-2xl md:text-3xl tracking-wide text-burgundy">
-            The Meera
-          </span>
+          <span className="font-serif text-2xl md:text-3xl tracking-wide">The Meera</span>
           <span className="mt-1 text-[10px] tracking-luxe uppercase opacity-70">
             Heritage · Hospitality
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-10">
           {links.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              hash={l.hash}
-              className="text-[12px] uppercase tracking-wider-luxe text-ink/75 transition-colors hover:text-burgundy"
+            <a
+              key={l.href}
+              href={l.href}
+              className={cn(
+                "text-[12px] uppercase tracking-wider-luxe transition-colors hover:opacity-100",
+                scrolled ? "text-ink/80 hover:text-burgundy" : "text-ivory/90 hover:text-ivory",
+              )}
             >
               {l.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
-        <Link
-          to="/"
-          hash="enquire"
-          className="hidden md:inline-flex items-center justify-center border border-burgundy bg-burgundy px-6 py-3 text-[11px] uppercase tracking-wider-luxe text-ivory transition-all duration-300 hover:bg-transparent hover:text-burgundy"
+        <a
+          href="#contact"
+          className={cn(
+            "hidden md:inline-flex items-center justify-center border px-6 py-3 text-[11px] uppercase tracking-wider-luxe transition-all duration-300",
+            scrolled
+              ? "border-burgundy text-burgundy hover:bg-burgundy hover:text-ivory"
+              : "border-ivory/80 text-ivory hover:bg-ivory hover:text-ink",
+          )}
         >
           Book Your Stay
-        </Link>
+        </a>
 
         <button
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="lg:hidden text-ink"
+          className={cn("lg:hidden", scrolled ? "text-ink" : "text-ivory")}
         >
           <Menu className="h-6 w-6" />
         </button>
@@ -90,31 +89,29 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <span className="font-serif text-2xl text-burgundy">The Meera</span>
+          <span className="font-serif text-2xl text-ink">The Meera</span>
           <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-ink">
             <X className="h-6 w-6" />
           </button>
         </div>
         <nav className="mt-12 flex flex-col items-center gap-8">
           {links.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              hash={l.hash}
+            <a
+              key={l.href}
+              href={l.href}
               onClick={() => setOpen(false)}
               className="font-serif text-3xl text-ink"
             >
               {l.label}
-            </Link>
+            </a>
           ))}
-          <Link
-            to="/"
-            hash="enquire"
+          <a
+            href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-6 border border-burgundy bg-burgundy px-8 py-3 text-[11px] uppercase tracking-wider-luxe text-ivory"
+            className="mt-6 border border-burgundy px-8 py-3 text-[11px] uppercase tracking-wider-luxe text-burgundy"
           >
             Book Your Stay
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

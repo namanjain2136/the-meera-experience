@@ -1,33 +1,32 @@
-import { Link } from "@tanstack/react-router";
-
 export function Footer() {
   return (
-    <footer className="bg-burgundy text-ivory/85">
+    <footer className="bg-[#1e1611] text-ivory/80">
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12">
         <div className="grid gap-14 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="font-serif text-3xl text-ivory">The Meera</div>
-            <div className="mt-2 text-[10px] tracking-luxe uppercase text-gold/90">
+            <div className="mt-2 text-[10px] tracking-luxe uppercase opacity-60">
               Heritage · Hospitality
             </div>
-            <p className="mt-8 max-w-md font-serif text-lg leading-relaxed text-ivory/75">
+            <p className="mt-8 max-w-md font-serif text-lg leading-relaxed text-ivory/70">
               A timeless retreat where heritage craftsmanship, warm Indian hospitality and modern
               luxury come together for an unforgettable stay.
             </p>
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-wider-luxe text-gold/90">Explore</div>
+            <div className="text-[11px] uppercase tracking-wider-luxe text-ivory/60">Explore</div>
             <ul className="mt-6 space-y-3 text-sm">
-              <li><Link to="/about" className="hover:text-gold">About</Link></li>
-              <li><Link to="/rooms" className="hover:text-gold">Rooms & Suites</Link></li>
-              <li><Link to="/" hash="weddings" className="hover:text-gold">Weddings</Link></li>
-              <li><Link to="/" hash="enquire" className="hover:text-gold">Enquire</Link></li>
+              <li><a href="#about" className="hover:text-ivory">About</a></li>
+              <li><a href="#rooms" className="hover:text-ivory">Rooms & Suites</a></li>
+              <li><a href="#weddings" className="hover:text-ivory">Weddings</a></li>
+              <li><a href="#dining" className="hover:text-ivory">Dining</a></li>
+              <li><a href="#gallery" className="hover:text-ivory">Gallery</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="text-[11px] uppercase tracking-wider-luxe text-gold/90">Contact</div>
+            <div className="text-[11px] uppercase tracking-wider-luxe text-ivory/60">Contact</div>
             <ul className="mt-6 space-y-3 text-sm">
               <li>Civil Lines, Jaipur</li>
               <li>Rajasthan 302006, India</li>
@@ -37,14 +36,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-ivory/15 pt-8 md:flex-row md:items-center">
-          <div className="text-xs text-ivory/60">
+        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-ivory/10 pt-8 md:flex-row md:items-center">
+          <div className="text-xs text-ivory/50">
             © {new Date().getFullYear()} The Meera. All rights reserved.
           </div>
-          <div className="flex gap-6 text-xs text-ivory/60">
-            <a href="#" className="hover:text-gold">Privacy</a>
-            <a href="#" className="hover:text-gold">Terms</a>
-            <a href="#" className="hover:text-gold">Press</a>
+          <div className="flex gap-6 text-xs text-ivory/50">
+            <a href="#" className="hover:text-ivory">Privacy</a>
+            <a href="#" className="hover:text-ivory">Terms</a>
+            <a href="#" className="hover:text-ivory">Press</a>
           </div>
         </div>
       </div>
