@@ -6,7 +6,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="font-serif text-3xl text-ivory">The Meera</div>
             <div className="mt-2 text-[10px] tracking-luxe uppercase opacity-60">
-              Heritage · Hospitality
+              A Luxury Experience
             </div>
             <p className="mt-8 max-w-md font-serif text-lg leading-relaxed text-ivory/70">
               A timeless retreat where heritage craftsmanship, warm Indian hospitality and modern
@@ -18,10 +18,10 @@ export function Footer() {
             <div className="text-[11px] uppercase tracking-wider-luxe text-ivory/60">Explore</div>
             <ul className="mt-6 space-y-3 text-sm">
               <li><a href="#about" className="hover:text-ivory">About</a></li>
-              <li><a href="#rooms" className="hover:text-ivory">Rooms & Suites</a></li>
               <li><a href="#weddings" className="hover:text-ivory">Weddings</a></li>
-              <li><a href="#dining" className="hover:text-ivory">Dining</a></li>
+              <li><a href="#rooms" className="hover:text-ivory">Facility</a></li>
               <li><a href="#gallery" className="hover:text-ivory">Gallery</a></li>
+              <li><a href="#contact" className="hover:text-ivory">Contact Us</a></li>
             </ul>
           </div>
 
