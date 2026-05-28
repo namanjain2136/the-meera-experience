@@ -50,8 +50,8 @@
   --ivory: oklch(0.985 0.012 85);            /* #faf6ee */
   --cream: oklch(0.965 0.018 82);            /* #f4ecdc */
   --champagne: oklch(0.92 0.028 80);         /* #e8dcc1 */
-  --burgundy: oklch(0.42 0.12 25);           /* deep muted burgundy */
-  --burgundy-soft: oklch(0.55 0.13 25);      /* warm soft red */
+  --burgundy: #b81f27;                       /* primary brand red */
+  --burgundy-soft: #c93a42;                  /* softer brand red */
   --ink: oklch(0.28 0.02 60);                /* warm dark brown-ink */
 
   --background: var(--ivory);
