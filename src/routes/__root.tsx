@@ -72,13 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Meera — A Heritage Luxury Hotel & Wedding Destination" },
+      { title: "The Meera" },
       {
         name: "description",
         content:
           "The Meera is a heritage luxury hotel in Jaipur offering elegant suites, royal weddings, signature dining and warm Indian hospitality.",
       },
-      { property: "og:title", content: "The Meera — Heritage Luxury Hospitality" },
+      { property: "og:title", content: "The Meera" },
       {
         property: "og:description",
         content:
@@ -86,6 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "The Meera" },
+      { name: "description", content: "A luxury hospitality website homepage showcasing premium accommodation, weddings, and dining with warm Indian hospitality." },
+      { property: "og:description", content: "A luxury hospitality website homepage showcasing premium accommodation, weddings, and dining with warm Indian hospitality." },
+      { name: "twitter:description", content: "A luxury hospitality website homepage showcasing premium accommodation, weddings, and dining with warm Indian hospitality." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9f74ed86-7110-4c02-b049-19822eebceef/id-preview-6057918c--e17c2b7f-5663-4c3c-bd9a-aaff62bcce60.lovable.app-1779955130800.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9f74ed86-7110-4c02-b049-19822eebceef/id-preview-6057918c--e17c2b7f-5663-4c3c-bd9a-aaff62bcce60.lovable.app-1779955130800.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
